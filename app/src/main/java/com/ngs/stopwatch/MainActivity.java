@@ -86,15 +86,16 @@ public class MainActivity extends AppCompatActivity {
             timeInMilliseconds = SystemClock.uptimeMillis() - startTime;
             updatedTime = timeSwapBuff + timeInMilliseconds;
             int seconds = (int) (updatedTime / 1000);
-            int seconds = (int) (updatedTime / 1000);
             int minutes = seconds / 60;
+            int hours = (int) (minutes / 60);
             seconds = seconds % 60;
             int milliseconds = (int) (updatedTime % 1000);
 
             String string = "";
-            string += "" + String.format("%02d", minutes);
+            string += "" + String.format("%02d", hours);
+            string += ":" + String.format("%02d", minutes);
             string += ":" + String.format("%02d", seconds);
-            string += ":" + String.format("%02d", milliseconds);
+//            string += ":" + String.format("%02d", milliseconds);
 
             timerValue.setText(string);
             customHandler.postDelayed(this, 0);
